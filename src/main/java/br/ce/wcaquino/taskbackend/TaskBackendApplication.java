@@ -17,3 +17,4 @@ public class TaskBackendApplication extends SpringBootServletInitializer {
 		return application.sources(TaskBackendApplication.class);
 	}
 }
+
