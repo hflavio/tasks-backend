@@ -1,4 +1,4 @@
-package br.ce.holiveira.tasks.apitest;
+package br.ce.holiveira.tasks.ApiTest;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
