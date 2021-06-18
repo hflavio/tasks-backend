@@ -179,7 +179,7 @@
 		<build>
 			<testResources>
 				<testResource>
-					<directory>src/test/unit/resources</directory>
+					<directory>src/test/integration/resources</directory>
 				</testResource>
 			</testResources>
 			<plugins>
@@ -210,7 +210,7 @@
 		<build>
 			<testResources>
 				<testResource>
-					<directory>src/test/integration/resources</directory>
+					<directory>src/test/unit/resources</directory>
 				</testResource>
 			</testResources>
 			<plugins>

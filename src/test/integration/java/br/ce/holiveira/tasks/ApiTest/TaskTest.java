@@ -6,7 +6,7 @@ import org.hamcrest.CoreMatchers;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class APITest {
+public class TaskTest {
 
     @BeforeClass
     public static void setup(){
