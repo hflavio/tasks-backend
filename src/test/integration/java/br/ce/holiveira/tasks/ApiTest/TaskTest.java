@@ -3,6 +3,7 @@ package br.ce.holiveira.tasks.ApiTest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.hamcrest.CoreMatchers;
+import org.hamcrest.Matchers;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -11,6 +12,16 @@ public class TaskTest {
     @BeforeClass
     public static void setup(){
         RestAssured.baseURI = "http://localhost:8001/tasks-backend";
+    }
+
+    @Test
+    public void deveRetornarHelloWorld() {
+        RestAssured.given()
+                .when()
+                .get()
+                .then().log().all()
+                .statusCode(200)
+        ;
     }
 
     @Test
