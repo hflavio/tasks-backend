@@ -1,5 +1,6 @@
 package br.ce.holiveira.tasks.ApiTest;
 
+import br.ce.holiveira.taskbackend.controller.RootController;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.hamcrest.CoreMatchers;
@@ -16,10 +17,12 @@ public class TaskTest {
 
     @Test
     public void deveRetornarHelloWorld() {
+        RootController.class.getClass();
         RestAssured.given()
                 .when()
-                .get()
-                .then().log().all()
+                    .get()
+                .then()
+                    .log().all()
                 .statusCode(200)
         ;
     }
@@ -28,34 +31,34 @@ public class TaskTest {
     public void deveRetornarTarefas() {
         RestAssured.given()
                 .when()
-                .get("/todo")
+                    .get("/todo")
                 .then()
-                .statusCode(200);
+                    .statusCode(200);
     }
 
     @Test
     public void deveAdicionarTarefasComSucesso() {
         RestAssured.given()
-                .body("{\"task\": \"Test via API\", \"dueDate\": \"2021-07-17\"}")
-                .contentType(ContentType.JSON)
+                    .body("{\"task\": \"Test via API\", \"dueDate\": \"2021-07-17\"}")
+                    .contentType(ContentType.JSON)
                 .when()
-                .post("/todo")
+                    .post("/todo")
                 .then()
-                .log().all()
-                .statusCode(201);
+                    .log().all()
+                    .statusCode(201);
     }
 
     @Test
     public void deveAdicionarTarefasInvalida() {
         RestAssured.given()
-                .body("{\"task\": \"Test via API\", \"dueDate\": \"2010-12-30\"}")
-                .contentType(ContentType.JSON)
+                    .body("{\"task\": \"Test via API\", \"dueDate\": \"2010-12-30\"}")
+                    .contentType(ContentType.JSON)
                 .when()
-                .post("/todo")
+                    .post("/todo")
                 .then()
-                .log().all()
-                .statusCode(400)
-                .body("message", CoreMatchers.is("Due date must not be in past"))
+                    .log().all()
+                    .statusCode(400)
+                    .body("message", CoreMatchers.is("Due date must not be in past"))
         ;
     }
 
